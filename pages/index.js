@@ -4,7 +4,7 @@ export default function Page() {
             <h1>
                 Service Title
             </h1>
-            <p className={styles.description}>
+            <p>
                 Some information
             </p>
         </div>
