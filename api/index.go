@@ -75,7 +75,7 @@ func Handler(w http.ResponseWriter, r *http.Request) {
 		}
 	}
 
-	response.Ef = transaction.String()
+	response.Ef = hex.EncodeToString((transaction.ExtendedBytes())
 
 	// respond with the extended transaction
 	doResponse(w, response)
