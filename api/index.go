@@ -2,6 +2,7 @@ package handler
 
 import (
 	"context"
+	"encoding/hex"
 	"encoding/json"
 	"fmt"
 	"log"
@@ -75,7 +76,7 @@ func Handler(w http.ResponseWriter, r *http.Request) {
 		}
 	}
 
-	response.Ef = hex.EncodeToString((transaction.ExtendedBytes())
+	response.Ef = hex.EncodeToString(transaction.ExtendedBytes())
 
 	// respond with the extended transaction
 	doResponse(w, response)
