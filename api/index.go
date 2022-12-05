@@ -57,21 +57,20 @@ func Handler(w http.ResponseWriter, r *http.Request) {
 		log.Fatalln(err.Error())
 	}
 
-	
 	for _, input := range transaction.Inputs {
 		txid := input.PreviousTxIDStr()
 		log.Printf("Looking up transaction %s", txid)
 		var tx *models.Transaction
 		if tx, err = junglebusClient.GetTransaction(context.Background(), txid); err != nil {
-			log.Printf("ERROR: failed getting transaction %s", err.Error())
+			log.Printf("ERROR: failed getting transaction %s\n", err.Error())
 		} else {
 			j, _ := json.Marshal(tx)
-			log.Printf("Got transaction %s", string(j))
 			actualTx, err := bt.NewTxFromBytes(tx.Transaction)
 			if err != nil {
-				log.Fatalln(err.Error())
+				log.Println(err.Error())
 			}
 			o := actualTx.Outputs[input.PreviousTxOutIndex]
+			log.Println(o.LockingScript.String())
 			input.PreviousTxScript = o.LockingScript
 			input.PreviousTxSatoshis = o.Satoshis
 		}
