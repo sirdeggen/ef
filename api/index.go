@@ -57,6 +57,7 @@ func Handler(w http.ResponseWriter, r *http.Request) {
 		log.Fatalln(err.Error())
 	}
 
+	
 	for _, input := range transaction.Inputs {
 		txid := input.PreviousTxIDStr()
 		log.Printf("Looking up transaction %s", txid)
