@@ -76,7 +76,7 @@ func Handler(w http.ResponseWriter, r *http.Request) {
 		}
 	}
 
-	response.Ef = string(transaction.Bytes())
+	response.Ef = transaction.String()
 
 	// respond with the extended transaction
 	doResponse(w, response)

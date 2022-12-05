@@ -1,12 +1,12 @@
 export default function Page() {
     return (
-        <div>
+        <main>
             <h1>
-                Service Title
+                Extended Format Service API
             </h1>
             <p>
-                Some information
+                Send your rawtx to the /api endpoint to get the extended format in the response.
             </p>
-        </div>
+        </main>
     )
 }
