@@ -64,7 +64,6 @@ func Handler(w http.ResponseWriter, r *http.Request) {
 		if tx, err = junglebusClient.GetTransaction(context.Background(), txid); err != nil {
 			log.Printf("ERROR: failed getting transaction %s\n", err.Error())
 		} else {
-			j, _ := json.Marshal(tx)
 			actualTx, err := bt.NewTxFromBytes(tx.Transaction)
 			if err != nil {
 				log.Println(err.Error())
