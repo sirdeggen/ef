@@ -17,7 +17,7 @@ export default function Page() {
             </Head>
             <main>
                 <h1>Extended Format Service API</h1>
-                <p>Send your rawtx to the /api endpoint to get the extended format in the response.</p>
+                <p>Send your adsf to the /api endpoint to get the extended format in the response.</p>
                 <code style={{ textAlign: 'left' }}>
                     <pre>{curl}</pre>
                 </code>
